@@ -1,0 +1,7 @@
+%h1 Todo一覧
+
+%ul
+  - @todos.each do |todo|
+    %li= todo.title 
+    %li= todo.context 
+    %li= todo.completed 
