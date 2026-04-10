@@ -1,24 +1,51 @@
-# README
+# RailsTodoApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails 製の Todo 管理アプリケーションです。
 
-Things you may want to cover:
+## 動作環境
 
-* Ruby version
+- Ruby 4.0.2
+- Rails 8.1.3
+- PostgreSQL 17
+- Docker / Docker Compose
 
-* System dependencies
+## 環境構築
 
-* Configuration
+### 1. リポジトリのクローン
 
-* Database creation
+```bash
+git clone https://github.com/river3570/RailsTodoApp.git
+cd RailsTodoApp
+```
 
-* Database initialization
+### 2. Docker コンテナの起動
 
-* How to run the test suite
+```bash
+docker compose up --build
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+初回起動時にイメージのビルドと `bundle install` が自動で実行されます。
 
-* Deployment instructions
+### 3. データベースの作成とマイグレーション
 
-* ...
+```bash
+docker compose exec web rails db:create db:migrate
+```
+
+### 4. アクセス
+
+ブラウザで [http://localhost:3000](http://localhost:3000) を開いてください。
+
+---
+
+### コンテナの停止
+
+```bash
+docker compose down
+```
+
+データベースのデータも削除する場合：
+
+```bash
+docker compose down -v
+```
