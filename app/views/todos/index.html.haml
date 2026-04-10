@@ -1,7 +1,9 @@
 %h1 Todo一覧
 
-%ul
-  - @todos.each do |todo|
-    %li= todo.title 
-    %li= todo.context 
-    %li= todo.completed 
+.container
+  %ul
+    - @todos.each do |todo|
+      %li
+        %h3= todo.title
+        %p=  todo.context 
+        %p=  completed_label(todo.completed) 
