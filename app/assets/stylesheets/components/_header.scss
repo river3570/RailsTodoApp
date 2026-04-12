@@ -1,0 +1,48 @@
+.header {
+  background-color: gray;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-weight: bold;
+    font-size: 40px;
+    color: #333;
+  }
+
+  &__nav {
+    &-item {
+      &:not(:first-child) {
+        margin-left: 25px;
+      }
+    }
+  }
+
+  &__username {
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 12px;
+  }
+
+  &__link {
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    &--login {
+      color: #1e90ff;
+    }
+
+    &--logout {
+      color: #dc143c;
+    }
+  }
+}
