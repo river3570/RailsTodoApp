@@ -17,4 +17,6 @@
     = javascript_importmap_tags
   %body
     = render "layouts/header"
-    = yield
+    %main.main
+      = yield
+    = render "layouts/footer"
