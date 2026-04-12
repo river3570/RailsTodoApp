@@ -1,0 +1,10 @@
+%header.header
+  .container
+    = link_to "RailsTodoApp", root_path, class: "header__title"
+    %nav.header__nav
+      - if user_signed_in?
+        = link_to "Todo一覧", root_path, class: "header__link header__nav-item"
+        %span.header__username.header__nav-item= current_user.nickname + "さん"
+        = link_to "ログアウト", destroy_user_session_path, class: "header__link header__nav-item header__link--logout", data: { turbo_method: :delete }
+      - else 
+        = link_to "ログイン", new_user_session_path, class: "header__nav-item header__link--login"
