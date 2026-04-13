@@ -1,4 +1,8 @@
-%li.todo-card{class: todo.completed ? "todo-card__completed" : ""}
-  %h3.todo-card__title= todo.title
+%li.todo-card{class: todo.completed ? "todo-card--completed" : ""}
+  .todo-card__header
+    %h3.todo-card__title= todo.title
+    .todo-card__icons
+      = link_to "✒️", edit_todo_path(todo), class: "todo-card__icons--edit"
+      = link_to "🗑️", todo_path(todo), class: "todo-card__icons--delete", data: { turbo_method: :delete, turbo_confirm: "削除しますか？" }
   %p.todo-card__context= todo.context
   %p.todo-card__completed= completed_label(todo.completed)
