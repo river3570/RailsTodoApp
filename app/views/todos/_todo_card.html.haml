@@ -1,0 +1,4 @@
+%li.todo-card{class: todo.completed ? "todo-card__completed" : ""}
+  %h3.todo-card__title= todo.title
+  %p.todo-card__context= todo.context
+  %p.todo-card__completed= completed_label(todo.completed)

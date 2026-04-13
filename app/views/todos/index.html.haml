@@ -1,7 +1,6 @@
-%h2 Todo一覧
-%ul
-  - @todos.each do |todo|
-    %li
-      %h3= todo.title
-      %p=  todo.context
-      %p=  completed_label(todo.completed)
+.container
+  .todo-list
+    %h2.todo-list__title Todo一覧
+    %ul.todo-list__items
+      - @todos.each do |todo|
+        = render "todo_card", todo: todo
