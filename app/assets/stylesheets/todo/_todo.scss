@@ -15,6 +15,100 @@
   }
 }
 
+.todo-form {
+  max-width: 600px;
+  margin: 40px auto;
+
+  &__title {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 24px;
+  }
+
+  &__errors {
+    background-color: #fff0f0;
+    border: 1px solid #f5c6c6;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 20px;
+    color: #dc143c;
+    font-size: 14px;
+
+    ul {
+      padding-left: 16px;
+      margin: 0;
+
+      li {
+        list-style: disc;
+      }
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  &__label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 6px;
+  }
+
+  &__input,
+  &__textarea {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: gray;
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 8px;
+  }
+
+  &__submit {
+    background-color: gray;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__cancel {
+    font-size: 14px;
+    color: #666;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
 .todo-card {
   background-color: #fff;
   border: 1px solid #ddd;
