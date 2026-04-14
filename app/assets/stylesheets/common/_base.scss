@@ -24,3 +24,24 @@ a {
   max-width: 1200px;
   width: 90%;
 }
+
+.flash {
+  width: 30%;
+  margin: 0 auto 16px;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: center;
+
+  &--notice {
+    background-color: #e6f4ea;
+    color: #2d6a4f;
+    border: 1px solid #b7dfca;
+  }
+
+  &--alert {
+    background-color: #fff0f0;
+    color: #dc143c;
+    border: 1px solid #f5c6c6;
+  }
+}

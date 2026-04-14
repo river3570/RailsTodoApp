@@ -1,6 +1,6 @@
 .container
   .todo-form
-    %h2.todo-form__title Todo新規作成
+    %h2.todo-form__title Todo編集
     = form_with model: @todo, local: true do |f|
       - if @todo.errors.any?
         .todo-form__errors
@@ -13,6 +13,15 @@
       .todo-form__field
         = f.label :context, "内容", class: "todo-form__label"
         = f.text_area :context, class: "todo-form__textarea", placeholder: "2〜300文字で入力してください", rows: 5
+      .todo-form__field
+        %span.todo-form__label ステータス
+        .todo-form__radio-group
+          = f.label :completed_false, class: "todo-form__radio-label" do
+            = f.radio_button :completed, false, class: "todo-form__radio"
+            未完了
+          = f.label :completed_true, class: "todo-form__radio-label" do
+            = f.radio_button :completed, true, class: "todo-form__radio"
+            完了
       .todo-form__actions
         = link_to "キャンセル", todos_path, class: "todo-form__cancel"
-        = f.submit "作成する", class: "todo-form__submit"
+        = f.submit "更新する", class: "todo-form__submit"

@@ -1,6 +1,8 @@
 .container
   .todo-list
-    %h2.todo-list__title Todo一覧
+    .todo-list__header
+      %h2.todo-list__title Todo一覧
+      = link_to "＋ 新規作成", new_todo_path, class: "todo-list__new-link"
     %ul.todo-list__items
       - @todos.each do |todo|
         = render "todo_card", todo: todo
