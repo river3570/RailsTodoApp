@@ -18,5 +18,9 @@
   %body
     = render "layouts/header"
     %main.main
+      - if flash[:notice]
+        .flash.flash--notice= flash[:notice]
+      - if flash[:alert]
+        .flash.flash--alert= flash[:alert]
       = yield
     = render "layouts/footer"
