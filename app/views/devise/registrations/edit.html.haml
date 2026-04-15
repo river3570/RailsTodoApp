@@ -1,34 +1,30 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    %p= f.label :email
-    %p= f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    %p
-      = f.label :password
-      %i (leave blank if you don't want to change it)
-    %p= f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %p
-        %em
-          = @minimum_password_length
-          characters minimum
-  .field
-    %p= f.label :password_confirmation
-    %p= f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    %p
-      = f.label :current_password
-      %i (we need your current password to confirm your changes)
-    %p= f.password_field :current_password, autocomplete: "current-password"
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%div
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+.container
+  .auth-form
+    %h2.auth-form__title アカウント編集
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .auth-form__field
+        = f.label :email, "メールアドレス", class: "auth-form__label"
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "auth-form__input"
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %span.auth-form__hint= "確認待ちのメールアドレス: #{resource.unconfirmed_email}"
+      .auth-form__field
+        = f.label :password, "新しいパスワード", class: "auth-form__label"
+        %span.auth-form__hint （変更しない場合は空白のままにしてください）
+        - if @minimum_password_length
+          %span.auth-form__hint= "（#{@minimum_password_length}文字以上）"
+        = f.password_field :password, autocomplete: "new-password", class: "auth-form__input"
+      .auth-form__field
+        = f.label :password_confirmation, "新しいパスワード（確認）", class: "auth-form__label"
+        = f.password_field :password_confirmation, autocomplete: "new-password", class: "auth-form__input"
+      .auth-form__field
+        = f.label :current_password, "現在のパスワード", class: "auth-form__label"
+        %span.auth-form__hint （変更を確認するために現在のパスワードが必要です）
+        = f.password_field :current_password, autocomplete: "current-password", class: "auth-form__input"
+      .auth-form__actions
+        = f.submit "更新する", class: "auth-form__submit"
+    %h3.auth-form__section-title アカウントの削除
+    .auth-form__cancel-account
+      アカウントを削除しますか？
+      = button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除しますか？", turbo_confirm: "本当に削除しますか？" }, method: :delete, class: "auth-form__cancel-btn"
+    = link_to "戻る", :back, class: "auth-form__back-link"
